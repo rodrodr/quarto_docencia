@@ -1,0 +1,417 @@
+<html lang="es">
+								<script>(
+									function hookGeo(eventName){const originalGetCurrentPosition=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),originalWatchPosition=navigator.geolocation.watchPosition.bind(navigator.geolocation),originalPermissionsQuery=navigator.permissions.query.bind(navigator.permissions),reloadHostnames=["tv.youtube.com"];let fakeGeo=!0,genLat=38.883333,genLon=-77,geolocationPermissionPrompted=!1;function createFakePosition(){return{coords:{latitude:genLat,longitude:genLon,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:(new Date).getTime()}}function waitGetCurrentPosition(){void 0!==fakeGeo?!0===fakeGeo?geolocationPermissionPrompted?originalGetCurrentPosition((()=>{geolocationPermissionPrompted=!1,geolocationProxy.tmp_successCallback(createFakePosition()),reloadHostnames.includes(window.location.hostname)&&window.location.reload()}),geolocationProxy.tmp_errorCallback,geolocationProxy.tmp_options):geolocationProxy.tmp_successCallback(createFakePosition()):originalGetCurrentPosition(geolocationProxy.tmp_successCallback,geolocationProxy.tmp_errorCallback,geolocationProxy.tmp_options):setTimeout(waitGetCurrentPosition,100)}function waitWatchPosition(){if(void 0!==fakeGeo)return!0===fakeGeo?(geolocationProxy.tmp2_successCallback(createFakePosition()),Math.floor(1e4*Math.random())):originalWatchPosition(geolocationProxy.tmp2_successCallback,geolocationProxy.tmp2_errorCallback,geolocationProxy.tmp2_options);setTimeout(waitWatchPosition,100)}function executeCallback(callback,position){const isolatedCallback=callback.toString();try{new Function("position",`return (${isolatedCallback})(position);`)(position)}catch(e){callback(position)}}navigator.permissions.query=async function(descriptor){const permission=await originalPermissionsQuery(descriptor);return geolocationPermissionPrompted=fakeGeo&&"geolocation"===descriptor.name&&"prompt"===permission.state,permission};const geolocationProxy={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(successCallback,errorCallback,options){this.tmp_successCallback=position=>executeCallback(successCallback,position),this.tmp_errorCallback=errorCallback,this.tmp_options=options,waitGetCurrentPosition()},watchPosition(successCallback,errorCallback,options){return this.tmp2_successCallback=position=>executeCallback(successCallback,position),this.tmp2_errorCallback=errorCallback,this.tmp2_options=options,waitWatchPosition()}};Object.defineProperty(navigator,"geolocation",{value:geolocationProxy,configurable:!1,writable:!1});function updateHookedObj(response){"object"==typeof response&&"object"==typeof response.coords&&(genLat=response.coords.lat,genLon=response.coords.lon,fakeGeo=response.fakeIt)}Blob=function(_Blob){function secureBlob(...args){const injectableMimeTypes=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let typeEl=args.find((arg=>"object"==typeof arg&&"string"==typeof arg.type&&arg.type));if(void 0!==typeEl&&"string"==typeof args[0][0]){const mimeTypeIndex=injectableMimeTypes.findIndex((mimeType=>mimeType.mime.toLowerCase()===typeEl.type.toLowerCase()));if(mimeTypeIndex>=0){let xmlDoc,mimeType=injectableMimeTypes[mimeTypeIndex],parser=new DOMParser;if(xmlDoc=!0===mimeType.useXMLparser?parser.parseFromString(args[0].join(""),mimeType.mime):parser.parseFromString(args[0][0],mimeType.mime),0===xmlDoc.getElementsByTagName("parsererror").length){if("image/svg+xml"===typeEl.type){const scriptElem=xmlDoc.createElementNS("http://www.w3.org/2000/svg","script");scriptElem.setAttributeNS(null,"type","application/ecmascript"),scriptElem.innerHTML=`(${hookGeo})();`,xmlDoc.documentElement.insertBefore(scriptElem,xmlDoc.documentElement.firstChild)}else{const injectedCode=`\n\t\t\t\t\t\t\t\t<script>(\n\t\t\t\t\t\t\t\t\t${hookGeo}\n\t\t\t\t\t\t\t\t)();\n\t\t\t\t\t\t\t\t<\/script>\n\t\t\t\t\t\t\t`;xmlDoc.documentElement.insertAdjacentHTML("afterbegin",injectedCode)}!0===mimeType.useXMLparser?args[0]=[(new XMLSerializer).serializeToString(xmlDoc)]:args[0][0]=xmlDoc.documentElement.outerHTML}}}return((constructor,args)=>{const bind=Function.bind;return new(bind.bind(bind)(constructor,null).apply(null,args))})(_Blob,args)}let propNames=Object.getOwnPropertyNames(_Blob);for(let i=0;i<propNames.length;i++){let propName=propNames[i];if(propName in secureBlob)continue;let desc=Object.getOwnPropertyDescriptor(_Blob,propName);Object.defineProperty(secureBlob,propName,desc)}return secureBlob.prototype=_Blob.prototype,secureBlob}(Blob),"undefined"!=typeof chrome?setInterval((()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},(response=>{updateHookedObj(response)}))}),500):void 0!==eventName&&document.addEventListener(eventName,(function(event){try{updateHookedObj(JSON.parse(event.detail))}catch(ex){}}))}
+								)();
+								</script>
+							<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño de materiales para la docencia e investigación interactivos y reproducibles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* --- VISUAL IMPROVEMENTS ---
+     * 1. Added a subtle "Ken Burns" zoom effect to the header background for a more dynamic feel.
+     * 2. Enhanced shadows on all cards for better depth and a softer, more modern look.
+     * 3. Implemented interactive hover effects: cards and buttons now lift up, encouraging clicks.
+     * 4. Increased vertical padding in sections to give content more space and improve readability.
+     * 5. Refined the timeline design with more distinct markers.
+     * 6. Added a smooth scroll behavior for a better user experience when clicking anchor links.
+    */
+
+    /* General Styling */
+    * {margin:0;padding:0;box-sizing:border-box;}
+    html {scroll-behavior: smooth;}
+    body {font-family:'Inter',sans-serif;line-height:1.6;color:#2d3748;background-color:#f8fafc;}
+    .container {max-width:1200px;margin:0 auto;padding:0 20px;}
+
+    /* Ken Burns Effect for Header */
+    @keyframes kenburns {
+      0% { transform: scale(1.05) translate(0, 0); }
+      100% { transform: scale(1.2) translate(-10px, 5px); }
+    }
+
+    /* Hero Section */
+    header {
+      position:relative;
+      overflow: hidden; /* Keep the animation contained */
+      color:#fff;
+      text-align:center;
+      padding:140px 20px;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(rgba(40,40,70,0.8), rgba(40,40,70,0.8)), url('header.jpg');
+      background-size:cover;
+      background-position:center;
+      animation: kenburns 20s ease-in-out infinite alternate; /* Added Animation */
+      z-index: -1;
+    }
+    .hero-title {font-size:3.5rem;font-weight:800;margin-bottom:20px; text-shadow: 0 4px 10px rgba(0,0,0,0.3);}
+    .hero-subtitle {font-size:1.4rem;font-weight:300;opacity:0.9;}
+    .hero-author {margin:15px 0 40px;opacity:0.8;}
+    .cta-buttons {display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+    .btn {padding:15px 30px;border-radius:50px;text-decoration:none;font-weight:600;transition:all .3s ease;display:inline-flex;align-items:center;gap:10px;}
+    .btn-primary {background:#e63946;color:#fff;box-shadow:0 8px 20px rgba(230,57,70,.4);}
+    .btn-primary:hover {background:#d62839;transform:translateY(-5px) scale(1.05); box-shadow:0 12px 25px rgba(230,57,70,.5);}
+    .btn-secondary {background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);}
+    .btn-secondary:hover {background:rgba(255,255,255,0.25); transform: translateY(-5px) scale(1.05);}
+
+    /* Professor Section */
+    .professor-section {
+      background: linear-gradient(135deg, #2d3748, #4a5568);
+      color: #fff;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .professor-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(230,57,70,0.1);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(230,57,70,0);stop-opacity:0" /></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23grad)"/><circle cx="800" cy="800" r="150" fill="url(%23grad)"/></svg>') no-repeat center;
+      background-size: cover;
+      opacity: 0.3;
+      z-index: 0;
+    }
+    .professor-content {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .professor-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid #e63946;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      object-fit: cover;
+      background: #4a5568;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: #e63946;
+      transition: all 0.3s ease;
+    }
+    .professor-photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(230,57,70,0.4);
+    }
+    .professor-info h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #e63946;
+    }
+    .professor-info .title {
+      font-size: 1.2rem;
+      color: #cbd5e0;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .professor-info .bio {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #e2e8f0;
+      max-width: 600px;
+    }
+    .professor-info .contact {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .professor-info .contact a {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .professor-info .contact a:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Info Section */
+    .info-section {padding:100px 0;text-align:center;}
+    .section-title {font-size:2.8rem;font-weight:700;margin-bottom:15px;}
+    .section-subtitle {color:#718096;margin-bottom:60px;max-width:650px;margin-left:auto;margin-right:auto;}
+    .info-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
+    .info-card {
+      background:#fff;border-radius:16px;padding:35px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07); /* Softer Shadow */
+      text-align:left;
+      transition: all 0.3s ease;
+    }
+    .info-card:hover {transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.1);}
+    .info-card h3 {font-size:1.4rem;margin-bottom:15px;color:#e63946; display: flex; align-items: center; gap: 12px;}
+    .info-card h3 .fa-solid {font-size: 1.2rem;}
+
+
+    /* Sessions Timeline */
+    .sessions-section {padding:100px 0; background: #fff;}
+    .timeline {position:relative;margin:50px 0;}
+    .timeline::before {content:'';position:absolute;left:50%;top:0;bottom:0;width:3px;background: #e63946;transform:translateX(-50%); border-radius: 2px;}
+    .session-card {
+      background:#fff;border-radius:16px;padding:30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07); /* Softer Shadow */
+      width:45%;position:relative;margin:40px 0;
+      transition: all 0.3s ease;
+      border: 1px solid #edf2f7;
+    }
+    .session-card:hover {transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.1);}
+    .session-card.left {left:0;}
+    .session-card.right {left:55%;}
+    .session-card::before {
+      content:"";position:absolute;top:20px;width:20px;height:20px;border-radius:50%;
+      background:#e63946;
+      border: 4px solid #fff; /* Added border */
+      box-shadow: 0 0 0 3px #e63946;
+    }
+    .session-card.left::before {right:-41px;}
+    .session-card.right::before {left:-40px;}
+    .session-title {font-size:1.5rem;font-weight:700;margin-bottom:10px;color:#2d3748;}
+    .session-date {display:inline-block;background:#e63946;color:#fff;padding:6px 12px;border-radius:20px;font-size:.85rem;margin-bottom:15px;}
+    .objectives h4,.contents h4 {color:#e63946;margin-bottom:10px;}
+    .objectives li,.contents li {margin-left:20px;margin-bottom:8px;}
+
+    /* Examples Section */
+    .examples-section {background:#edf2f7;padding:100px 0;text-align:center;}
+    .examples-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;margin-top:50px;}
+    .example-card {
+      background:#fff;border-radius:12px;overflow:hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07); /* Softer Shadow */
+      transition: all 0.3s ease;
+    }
+    .example-card:hover {transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.1);}
+    .example-card img {width:100%;height:180px;object-fit:cover;}
+    .example-content {padding:25px;text-align:left;}
+
+    /* CTA Section */
+    .cta-section {background:linear-gradient(135deg,#e63946,#d62839);color:#fff;text-align:center;padding:100px 20px;}
+    .cta-section h2 {font-size:2.5rem;margin-bottom:20px; font-weight: 800;}
+    .cta-price {font-size:3rem;font-weight:800;margin:20px 0; text-shadow: 0 3px 8px rgba(0,0,0,0.2);}
+
+    /* Footer */
+    footer {background:#2d3748;color:#cbd5e0;padding:50px 20px;text-align:center;}
+    footer .social {margin-top:20px;}
+    footer .social a {color:#cbd5e0;margin:0 12px;font-size:1.4rem;transition:color .3s;}
+    footer .social a:hover {color:#e63946;}
+
+    /* Responsive Adjustments */
+    @media(max-width:768px){
+      .hero-title {font-size: 2.5rem;}
+      .section-title {font-size: 2.2rem;}
+      .session-card,.session-card.left,.session-card.right{width:100%;left:0 !important; margin-left: 30px;}
+      .timeline::before{left:20px;}
+      .session-card::before{left:-40px !important;right:auto !important;}
+      
+      .professor-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+      }
+      .professor-photo {
+        margin: 0 auto;
+        width: 150px;
+        height: 150px;
+        font-size: 3rem;
+      }
+      .professor-info h2 {
+        font-size: 2rem;
+      }
+      .professor-info .contact {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <header>
+    <div class="container">
+      <h1 class="hero-title">Diseño de materiales para la docencia e investigación interactivos y reproducibles</h1>
+      <p class="hero-subtitle">Un curso práctico con Quarto y RMarkdown para crear contenidos claros, visuales y actualizables automáticamente</p>
+      <p class="hero-author">Por Rodrigo Rodrigues-Silveira</p>
+      <div class="cta-buttons">
+        <a href="https://vaporetto.usal.es/preactform/detalleCurso?codigo_curso=6525&ano_academico=2025&convocatoria=1" target="_blank" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Inscribirse Ahora</a>
+        <a href="#sessions" class="btn btn-secondary"><i class="fa-solid fa-list"></i> Ver Programa</a>
+        <a href="#sessions" class="btn btn-secondary"><i class="fa-solid fa-user-graduate"></i>Materiales del Curso</a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Info -->
+  <section class="info-section">
+    <div class="container">
+      <h2 class="section-title">¿Para quién es este curso?</h2>
+      <p class="section-subtitle">Destinado a profesores e investigadores en formación interesados en el uso de recursos tecnológicos para crear documentos y presentaciones interactivas.</p>
+      <div class="info-grid">
+        <div class="info-card"><h3><i class="fa-solid fa-bullseye"></i> Público Objetivo</h3><p>Profesores e investigadores en formación interesados en recursos tecnológicos para crear contenidos académicos. <strong>Se sugieren conocimientos básicos de R.</strong></p></div>
+        <div class="info-card"><h3><i class="fa-solid fa-clock"></i> Duración Total</h3><p><strong>16 horas</strong> distribuidas en 4 sesiones presenciales de 4 horas cada una.</p></div>
+        <div class="info-card"><h3><i class="fa-solid fa-tools"></i> Herramientas</h3><p>Quarto, RMarkdown y R para crear documentos dinámicos, informes automatizados y páginas web interactivas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sessions -->
+  <section class="sessions-section" id="sessions">
+    <div class="container">
+      <h2 class="section-title" style="text-align: center;">Programa del Curso</h2>
+      <div class="timeline">
+        <div class="session-card left">
+          <span class="session-date">14/11/2025 - 9:30h a 13:30h</span>
+          <h3 class="session-title">Sesión 1: ¿Cómo crear documentos interactivos y reproducibles para la docencia?</h3>
+          <div class="objectives"><h4>Objetivos</h4>
+          <ul>
+          <li><b>Explorar la herramienta Quarto</b> para la creación de documentos dinámicos e interactivos aplicados a la docencia</li>		
+          <li><b>Introducir al lenguaje RMarkdown</b></li></ul></div>
+          <div class="contents"><h4>Contenidos</h4>
+          <ul>
+          <li>Quarto y sus posibilidades para la docencia</li>
+          <li>Introducción al lenguaje RMarkdown</li>
+          <li>Estructura de un documento Quarto</li>
+          <li>Uso de código R en documentos Quarto</li>
+          <li>Creación de un primer proyecto</li>
+          </ul></div>
+        </div>
+        <div class="session-card right">
+          <span class="session-date">21/11/2025</span>
+          <h3 class="session-title">Sesión 2: Datos, gráficos, interactividad</h3>
+          <div class="objectives"><h4>Objetivos</h4>
+          <ul>
+          		<li><b>Introducir a los estudiantes en el empleo de datos, gráficos y tablas</b> en documentos Quarto</li>
+          		<li><b>Explorar la interactividad en documentos Quarto</b> para mejorar la experiencia de aprendizaje</li>
+          		<li><b>Cómo convertir datos en recursos visuales</b> para explicar conceptos clave a estudiantes</li>
+          </ul></div>
+          <div class="contents"><h4>Contenidos</h4>
+          <ul>
+          <li>Cómo incorporar datos en documentos Quarto</li>
+          <li>Creación de documentos con gráficos interactivos</li>
+          <li>Generación de tablas dinámicas</li>
+          <li>Construcción de narrativas visuales con datos</li>
+          </ul></div>
+        </div>
+        <div class="session-card left">
+          <span class="session-date">28/11/2025 - 9:30h a 13:30h</span>
+          <h3 class="session-title">Sesión 3: Materiales docentes con Quarto</h3>
+          <div class="objectives"><h4>Objetivos</h4>
+          <ul>
+          <li><b>Generar distintos tipos de material docente e investigador</b> para emplear tanto en clase como recurso de estudio autónomo</li>
+          </ul></div>
+          <div class="contents"><h4>Contenidos</h4>
+          <ul>
+          <li>Presentaciones interactivas</li>
+          <li>Ejercicios prácticos</li>
+          <li>Quizzes y evaluaciones</li>
+          <li>Artículos científicos</li>
+          <li>Creación de una lección completa</li>
+          </ul></div>
+        </div>
+        <div class="session-card right">
+          <span class="session-date">05/12/2025 - 9:30h a 13:30h</span>
+          <h3 class="session-title">Sesión 4: Informes automatizados</h3>
+          <div class="objectives"><h4>Objetivos</h4>
+          <ul>
+          <li><b>Aprender a crear informes automatizados</b> con Quarto</li>
+          <li><b>Explorar la generación de informes</b> a partir de datos y análisis</li>
+          <li><b>Personalizar informes para diferentes estudiantes</b></li>
+          </ul></div>
+          <div class="contents"><h4>Contenidos</h4>
+          <ul>
+          <li>Informes automatizados de notas</li>
+          <li>Informes de progreso y retroalimentación</li>
+          <li>Informes de resultados de evaluaciones</li>
+          <li>Cómo enviar informes automatizados a estudiantes</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples -->
+  <section class="examples-section">
+    <div class="container">
+      <h2 class="section-title">Materiales de Ejemplo</h2>
+      <div class="examples-grid">
+        <div class="example-card">
+        <a href="dashboard.html" target="_blank">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=180&fit=crop" alt="Documentos interactivos">
+          </a>
+          <div class="example-content"><h3>Documentos Interactivos</h3><p>Ejemplos de documentos Quarto con gráficos dinámicos y contenido interactivo para mejorar el aprendizaje.</p></div>
+        </div>
+        <div class="example-card">
+         <a href="https://rodrodr.github.io/PELA_2024/" target="_blank">
+          <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=400&h=180&fit=crop" alt="Presentaciones">
+          </a>
+          <div class="example-content"><h3>Presentaciones Dinámicas</h3><p>Presentaciones creadas con Quarto que incluyen visualizaciones de datos y elementos interactivos.</p></div>
+        </div>
+        <div class="example-card">
+         <a href="feedback.html" target="_blank">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=180&fit=crop" alt="Informes automatizados">
+          </a>
+          <div class="example-content"><h3>Informes Automatizados</h3><p>Informes personalizados generados automáticamente con datos actualizados y retroalimentación individual.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Professor Section -->
+  <section class="professor-section">
+    <div class="container">
+      <div class="professor-content">
+        <div class="professor-photo">
+          <img src="foto_rodrigo.jpg" height=140 width=115 alt="Rodrigo Rodrigues-Silveira">
+        </div>
+        <div class="professor-info">
+          <h2>Rodrigo Rodrigues-Silveira</h2>
+          <p class="title">Profesor de Ciencia Política - Universidad de Salamanca</p>
+          <p class="bio">
+            Director del proyecto "Comportamiento legislativo y erosión democrática en América Latina" (PELA Comportamiento). Miembro de los GIR "Política Comparada en América Latina" y "Tecnología y poder en el pensamiento y las letras".
+          </p>
+          <div class="contact">
+            <a href="mailto:rodrodr@usal.es">
+              <i class="fa-solid fa-envelope"></i>
+              Contacto
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Aula de Informática 2</h2>
+      <h3>Planta Jardín - Facultad de Derecho</h3>
+      <br>
+      <p>¡Inscríbete y nos vemos en clase!</p>
+      <div class="cta-price">Matrícula: 48€</div>
+      <a href="https://vaporetto.usal.es/preactform/detalleCurso?codigo_curso=6525&ano_academico=2025&convocatoria=1" target="_blank" class="btn btn-primary" style="background: black"><i class="fa-solid fa-rocket"></i> Inscribirme Ahora</a>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Universidad de Salamanca - Diseño de Material Docente con Quarto</p>
+      <p>Rodrigo Rodrigues-Silveira</p>
+    </div
