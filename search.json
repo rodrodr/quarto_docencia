@@ -1,0 +1,142 @@
+[
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Quarto+Markdown Material docente interactivo y dinámico en R",
+    "section": "",
+    "text": "Esta página web forma parte del curso “Diseño de materiales para la docencia e investigación interactivos y reproducibles”. En ella, se recogen los materiales y ejemplos que se desarrollarán durante las sesiones.",
+    "crumbs": [
+      "Introducción al curso"
+    ]
+  },
+  {
+    "objectID": "intro.html#el-curso",
+    "href": "intro.html#el-curso",
+    "title": "Quarto+Markdown Material docente interactivo y dinámico en R",
+    "section": "",
+    "text": "Esta página web forma parte del curso “Diseño de materiales para la docencia e investigación interactivos y reproducibles”. En ella, se recogen los materiales y ejemplos que se desarrollarán durante las sesiones.",
+    "crumbs": [
+      "Introducción al curso"
+    ]
+  },
+  {
+    "objectID": "intro.html#el-profesor",
+    "href": "intro.html#el-profesor",
+    "title": "Quarto+Markdown Material docente interactivo y dinámico en R",
+    "section": "El profesor",
+    "text": "El profesor\n\n\n\n\n\n\nRodrigo Rodrigues-Silveira\nrodrodr@usal.es\nProfesor de ciencia política de la USAL. Director del proyecto “Comportamiento legislativo y erosión democrática en América Latina” (PELA Comportamiento). Miembro de los GIR “Política Comparada en América Latina” y “Tecnología y poder en el pensamiento y las letras”.",
+    "crumbs": [
+      "Introducción al curso"
+    ]
+  },
+  {
+    "objectID": "intro.html#el-contenido",
+    "href": "intro.html#el-contenido",
+    "title": "Quarto+Markdown Material docente interactivo y dinámico en R",
+    "section": "El contenido",
+    "text": "El contenido\nDurante el curso se abordarán los siguientes temas:\n\nQuarto y Markdown para materiales docentes\nDatos y gráficos interactivos\nMateriales docentes en Quarto\nInformes automatizados",
+    "crumbs": [
+      "Introducción al curso"
+    ]
+  },
+  {
+    "objectID": "intro.html#sesiones",
+    "href": "intro.html#sesiones",
+    "title": "Quarto+Markdown Material docente interactivo y dinámico en R",
+    "section": "Sesiones",
+    "text": "Sesiones\nLas sesiones tendrán lugar en el aula de informática 2 de la Facultad de Derecho, en la planta Jardin.\nDÍA 1 - 14/11/2025 de 9:30 a 13:30h - Presentación del curso y conceptos básicos\nDÍA 2 - 21/11/2025 de 9:30 a 13:30h - Documentos interactivos\nDÍA 3 - 28/11/2025 de 9:30 a 13:30h - Materiales docentes con Quarto\nDÍA 4 - 05/12/2025 de 9:30 a 13:30h - Informes automatizados",
+    "crumbs": [
+      "Introducción al curso"
+    ]
+  },
+  {
+    "objectID": "intro.html#servicio-técnico",
+    "href": "intro.html#servicio-técnico",
+    "title": "Quarto+Markdown Material docente interactivo y dinámico en R",
+    "section": "🤖 Servicio técnico 🤖",
+    "text": "🤖 Servicio técnico 🤖\nEn este curso se utilizará R y RStudio como entorno de desarrollo. Si tenéis cualquier problema técnico durante el curso podéis contactar conmigo en persona durante las sesiones.\nPara que podáis reproducir los ejemplos de análisis presentados durante el curso debéis instalar en vuestros ordenadores el R y el RStudio Desktop.\nTambién deberéis instalar Quarto:\nhttps://quarto.org/docs/get-started/",
+    "crumbs": [
+      "Introducción al curso"
+    ]
+  },
+  {
+    "objectID": "intro.html#instalación-de-paquetes",
+    "href": "intro.html#instalación-de-paquetes",
+    "title": "Quarto+Markdown Material docente interactivo y dinámico en R",
+    "section": "Instalación de paquetes",
+    "text": "Instalación de paquetes\n\ndebes ejecutar cada línea de una en una y esperar que finalice antes de ejecutar la siguiente. Primero la que empieza con pc, luego, install.packages(pc) y, finalmente, una vez terminado el paso anterior: devtools::install_github(“rodrodr/tenet”, force=T).\nPuede que aparezcan algunos mensajes. El primero es si quieres reiniciar R, le das a “No”. El segundo es si deseas actualizar los paquetes y debes decir: “1 - All”. Finalmente, si te pide instalar paquetes “from source” (en Mac puede aparecer), elegid, “n” (no).\n\nEstos son solo algunos paquetes básicos para instalar inicialmente. Durante el curso, probablemente instalaremos otros más que dependerán de los ejercicios y ejemplos generados.\n\n\nCode\n# Crea un vector con los paquetes a instalar\npc &lt;- c(\"readr\",\"ggplot2\",\"ggrepel\",\"reactable\",\n        \"tidyverse\",\"devtools\",\"ggiraph\",\n        \"htmltools\",\"gridExtra\",\"grid\",\n        \"kableExtra\")\n\n# Instala los paquetes\ninstall.packages(pc)",
+    "crumbs": [
+      "Introducción al curso"
+    ]
+  },
+  {
+    "objectID": "basico.html#introducción",
+    "href": "basico.html#introducción",
+    "title": "Quarto+Markdown",
+    "section": "Introducción",
+    "text": "Introducción\nEn esta sesión vamos a conocer algunas de las características básicas de Quarto y Markdown, dos lenguajes de marcado que permiten crear documentos dinámicos e interactivos para la docencia y la investigación reproducible.\nSé por ciencia cierta que muchos de vosotros emplean modelos de inteligencia artificial. Todos esos modelos utilizan un lenguaje para generar sus textos o para recibir instrucciones. Algunos me preguntan: “Rodrigo, por qué usas # para referirte a las partes del prompt.” Bueno, llegó la hora de saber exactamente porqué.",
+    "crumbs": [
+      "Quarto y Markdown"
+    ]
+  },
+  {
+    "objectID": "basico.html#quarto",
+    "href": "basico.html#quarto",
+    "title": "Quarto+RMarkdown",
+    "section": "Quarto",
+    "text": "Quarto",
+    "crumbs": [
+      "Quarto y Markdown"
+    ]
+  },
+  {
+    "objectID": "basico.html#references",
+    "href": "basico.html#references",
+    "title": "Quarto+RMarkdown",
+    "section": "References",
+    "text": "References",
+    "crumbs": [
+      "Quarto y Markdown"
+    ]
+  },
+  {
+    "objectID": "basico.html#para-qué-sirve",
+    "href": "basico.html#para-qué-sirve",
+    "title": "Quarto+Markdown",
+    "section": "¿Para qué sirve?",
+    "text": "¿Para qué sirve?\n¿Tienes una asignatura y querías crear una página web rápidamente sin aprender html? ¿Quieres hacer un informe de notas de los 50 estudiantes que tienes de forma rápida y automática? ¿Quieres crear una presentación de Powerpoint con gráficos interactivos? ¿Quieres escribir un artículo académico de forma que se ajuste a distintos formatos de revista y citación de modo rápido? ¿Quieres que tu informe cambie y se adapte a los datos que tienes? Bueno, Quarto sirve para todo esto. En este curso introductorio veremos algunas aplicaciones de Quarto que son particularmente útiles para docentes e investigadores.",
+    "crumbs": [
+      "Quarto y Markdown"
+    ]
+  },
+  {
+    "objectID": "basico.html#quarto-qué-es",
+    "href": "basico.html#quarto-qué-es",
+    "title": "Quarto+Markdown",
+    "section": "Quarto: ¿qué es?",
+    "text": "Quarto: ¿qué es?\nAdemás de habitación y un número ordinal en portugués, Quarto es una fusión ampliada y extendida de RMarkdown y Jupyter Notebooks. Se trata de un programa, una extensión a RStudio y otros editores de texto, diseñado para científicos de datos que trabajen tanto con Python como con R y que deseen generar documentos empleando los dos lenguajes de programación sin problemas de compatibilidad. Aunque parezca confuso a la primera vista, se trata de un esfuerzo de estandarización en el formato de creación de documentos en esos dos lenguajes del que nos beneficiamos todos.\nEl lenguaje básico de Quarto es Markdown, un lenguaje de marcado ligero que permite crear documentos con formato de texto plano. Quarto añade a Markdown la capacidad de incluir bloques de código en R, Python y otros lenguajes, así como la posibilidad de generar documentos en múltiples formatos (HTML, PDF, Word, etc.) a partir del mismo archivo fuente.\nLa magia está en poder programar directamente en el documento. Si quieres hacer un gráfico, no necesitar crear el gráfico, exportar en formato imagen y pegarlo en el documento. El programa integra todo. Si cambian los datos, el gráfico se actualiza automáticamente. Por ejemplo, si cambio los datos de Brasil a Perú, el gráfico pasa de reflejar los indicadores de un país al otro.\nEl video abajo ofrece una primera introducción:",
+    "crumbs": [
+      "Quarto y Markdown"
+    ]
+  },
+  {
+    "objectID": "basico.html#markdown",
+    "href": "basico.html#markdown",
+    "title": "Quarto+Markdown",
+    "section": "Markdown",
+    "text": "Markdown\nEl lenguaje Markdown es un lenguaje de marcado ligero que permite crear documentos con formato de texto plano. Fue creado por John Gruber en 2004 con el objetivo de facilitar la escritura y lectura de documentos en formato HTML sin necesidad de conocer el lenguaje HTML en profundidad. Su sencillez lo convierte en un instrumento potente de escritura, puesto que permite formatear un texto de forma rápida y sencilla utilizando caracteres especiales. Por ejemplo, para crear un encabezado de nivel 1, se utiliza el símbolo # seguido del texto del encabezado. Para crear una lista con viñetas, empleamos - o * seguido del texto de cada elemento de la lista.\nPor ejemplo, el siguiente texto:\nEste texto está escrito para incluir formatación y ecuaciones \\(\\overline{x}=\\sum{x_i}/N\\). De ese modo, podemos resaltar la utilidad de un lenguaje que permite configurar el texto.\nIncluso podemos tener una tabla:\n\n\n\nID\nCiudad\n\n\n\n\n1\nSalamanca\n\n\n2\nMadrid\n\n\n3\nBarcelona\n\n\n\nPodemos también citar directamente a autores como Benoit (2020) sobre el análisis cuantitativo de textos.\nEn su formato en markdown sería:\nEste **texto** está escrito para incluir *formatación* y ecuaciones $\\overline{x}=\\sum{x_i}/N$. De ese modo, podemos resaltar la utilidad de un [lenguaje que permite configurar el texto]{style=“background-color:red;color:white”}\nIncluso podemos tener una tabla:\n| ID | Ciudad |\n| –: |:——-|\n| 1 | Salamanca |\n| 2 | Madrid |\n| 3 | Barcelona |\nPodemos también citar directamente a autores como Benoit [-@benoit2020] sobre el análisis cuantitativo de textos.\nCon la IA, Markdown incluso ayuda a estructurar de forma más clara las instrucciones que le damos a los modelos. También los resultados de la IA son generados en Markdown.\nCopia y pega este texto en chatGPT o en otro modelo de lenguaje:\nCuenta el cuento de la lechera en un párrafo imitando el estilo de Iker Jiménez. Añade énfasis y títulos.\nUna vez terminado de generar el texto, haz clic en el botón de copiar que aparece abajo de la respuesta y pega el texto generado en un editor de texto (Notepad o similar).\nVerás que el texto generado está en formato Markdown. Puedes pegarlo directamente en un editor de Quarto o RMarkdown y generar un documento con formato automáticamente.\nAdemás, es sencillo de aprender. En Quarto, se convierte en un ambiente muy agradecido. Puedo meter código html, latex, R, Python, Javascript, todo en un script Quarto y simplemente funciona.\n\n\n\n\n\n\nImportantReflexión trascendental\n\n\n\nAhorra nuestro tiempo y evita preguntas del tipo:\n“Si ya sé Word, ¿por qué debo aprender Markdown?”\nSi tienes esta duda existencial, creo que debes mudarte al Tibet y hacer meditación profunda por unos años hasta encontrar el chacra o cosa parecida. Sobre todo, debes preguntar en tu más profundo interior: “¿por qué me he matriculado en un curso de markdown si creo que me vale con Word?”\nQuizás ahí encuentres el nirvana.\nRecomiendo que veas este vídeo para entender por qué resulta útil aprender Markdown:\n\nSi aún así no te convence, siempre nos quedará Katmandu. ¡Namasté!\nPorque aquí… Aquí solo hay café.\n\n\nNo os preocupéis. Quarto tiene un editor visual que permite escribir en formato WYSIWYG (What You See Is What You Get) sin necesidad de conocer el lenguaje Markdown. Casi un Word, vamos. Sin embargo, conocer Markdown puede ser útil para personalizar el formato del documento y aprovechar al máximo las capacidades de Quarto.",
+    "crumbs": [
+      "Quarto y Markdown"
+    ]
+  },
+  {
+    "objectID": "basico.html#empecemos",
+    "href": "basico.html#empecemos",
+    "title": "Quarto+Markdown",
+    "section": "Empecemos",
+    "text": "Empecemos\nPara empezar a usar Quarto (y ya lo tenemos instalado), simplemente abrimos RStudio y creamos un nuevo documento de Quarto: File…New File……Quarto Document…\nAparecerá una pantalla en la que podemos elegir el formato (html, PDF, Word, sí, Word…). Mejor lo vemos juntos…\nEl resultado es un documento con un encabezado YAML y un bloque de código RMarkdown de ejemplo. Podemos escribir texto en formato Markdown y ejecutar bloques de código R directamente en el documento.\n\nEncabezado YAML\nEn el entorno de R, los documentos de R Markdown utilizan un encabezado YAML para controlar el proceso de renderizado (transformación del código en un archivo formateado) y los metadatos del documento de salida, ya sea HTML, PDF o Word. Se pueden especificar diversas opciones, como el formato (si html, PDF, Word), la lengua, el tamaño de página, el estilo de citas, el archivo con las referencias bibliográficas, la fecha, el título, el autor, entre otras opciones. Funciona como las instrucciones básicas del documento.\nPor ejemplo, el documento actual contiene un encabezado YAML que especifica el título, el subtítulo y el archivo de referencias bibliográficas:\n---\ntitle: “&lt;b&gt;Quarto+Markdown&lt;/b&gt;”\nsubtitle: “*El lenguaje básico de la ciencia de datos y la docencia interactiva*”\nbibliography: references.bib\n---\nComo se trata de una página web, el formato de salida es HTML por defecto. Podemos cambiarlo a PDF o Word modificando el encabezado YAML. El resultado sería:\n---\ntitle: “&lt;b&gt;Quarto+Markdown&lt;/b&gt;”\nsubtitle: “*El lenguaje básico de la ciencia de datos y la docencia interactiva*”\nbibliography: references.bib\nformat: pdf\n---\nEn este caso, perdería todos los elementos interactivos, pero el formato sería más adecuado para imprimir o compartir como documento estático.\n\n\nCuerpo del documento\nUna vez definido el encabezado YAML, podemos escribir el cuerpo del documento en formato Markdown. Podemos incluir texto, encabezados, listas, tablas, imágenes y bloques de código R.\nLa gramática básica de Markdown es sencilla. Por ejemplo, para crear un encabezado de nivel 1, utilizamos el símbolo # seguido del texto. Para palabras en negrita empleamos un doble asterisco ** para cursivas un solo asterisco *. Podemos emplear también el editor visual de Quarto para ello.\nEn el Cheat Sheet de Markdown puedes encontrar una guía rápida de los elementos básicos de Markdown. Sugiero que echéis un buen vistazo al documento y empezad a escribir. Cualquier cosa, por más sencilla que sea, para practicar el lenguaje.\n\n\nBloques de código\nFinalmente, podemos incluir bloques de código R, Python, html, css, javascript entre otros en el documento utilizando la sintaxis de R Markdown. Los bloques de código se indican con tres tildes invertidas (``) seguidas de la palabrar` para indicar que se trata de código R. Por ejemplo:\n```{r}\nprint(1+1)\n```",
+    "crumbs": [
+      "Quarto y Markdown"
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+/* css styles */
+
+<style>
+    .highlight {
+        background: url(https://s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=ffff43);
+    }
+    .text-start{
+    font-weight: bold;
+    font-size: 14px;
+    }
+    
+    .cell-output-stdout code {
+        word-break: break-wor !important;
+        white-space: pre-wrap !important;
+    }
+   
+</style>
